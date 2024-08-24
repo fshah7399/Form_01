@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lightgray;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #fff;
+        padding: 30px;
+        width: 300px;
+        border-radius: 15px;
+        box-shadow: 5px 4px 5px black;
+        transition: all 0.3s ease;
+      }
+
+      form:hover {
+        transform: scale(1.1);
+      }
+
+      form h2 {
+        text-align: center;
+        text-decoration: underline;
+        margin-bottom: 5px;
+      }
+
+      form input {
+        border: none;
+        outline: none;
+        padding: 10px 8px;
+        border-bottom: 1px solid lightgray;
+        transition: all 0.2s ease;
+      }
+
+      form input:focus {
+        outline: none;
+        border-bottom: 2px solid crimson;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+
+      form .submitBtn {
+        background: linear-gradient(to right, hotpink, skyblue);
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" name="myform" onsubmit="return formvalidation()">
+      <h2>Form Validation</h2>
+      <label for="">Name:</label>
+      <input type="text" name="fname" placeholder="Enter Name" />
+      <label for="">Password:</label>
+      <input type="password" name="pass" placeholder="Enter password" />
+      <label for="">Email:</label>
+      <input type="email" name="email" placeholder="Enter Email" />
+      <div class="checkboxx">
+        <label for="">Hobbie</label>
+        <input type="checkbox" name="mycheckbox" value="check" id="chek" />
+      </div>
+      <input type="submit" class="submitBtn" value="submit" />
+    </form>
+
+    <script>
+      function formvalidation() {
+        let a = document.forms["myform"]["fname"].value;
+        let b = document.forms["myform"]["pass"].value;
+        let c = document.forms["myform"]["email"].value;
+        if (a == "") {
+          alert("please fill fname");
+          return false;
+        }
+        if (b == "") {
+          alert("please fill password");
+          return false;
+        } else if (c == "") {
+          alert("please fill email");
+          return false;
+        } else if (!document.getElementById("chek").checked) {
+          alert("Checkbox not checked");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
